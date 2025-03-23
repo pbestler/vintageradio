@@ -1,0 +1,13 @@
+[Unit]
+Description=Raspberry Pi LED & Power Button Service
+After=multi-user.target
+
+[Service]
+ExecStart=/usr/local/bin/led_powerbutton.py
+StandardOutput=journal
+StandardError=journal
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target
