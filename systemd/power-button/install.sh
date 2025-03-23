@@ -14,6 +14,7 @@ fi
 
 echo "Installing Python script..."
 cp $SCRIPT_NAME $INSTALL_DIR/
+chmod 500 $INSTALL_DIR/$SCRIPT_NAME
 
 echo "Installing ${SERVICE_NAME}"
 cp $SERVICE_NAME $SERVICE_DIR/
