@@ -3,6 +3,7 @@
 import RPi.GPIO as GPIO
 import logging
 
+
 def change_led(led_name="PWR", state):
     """Turns the Raspberry Pi LED ON or OFF based on the given state.
 
@@ -32,9 +33,11 @@ def change_led(led_name="PWR", state):
     except PermissionError:
         print("Permission denied! Try running with sudo.")
     except FileNotFoundError:
-        print(f"LED {led_name} not found. Check available LEDs in /sys/class/leds/")
+        print(
+            f"LED {led_name} not found. Check available LEDs in /sys/class/leds/")
     except Exception as e:
         print(f"Error: {e}")
+
 
 def wait_for_powerbutton(gpio_id=3):
 
@@ -49,7 +52,6 @@ def wait_for_powerbutton(gpio_id=3):
         print(f"Error during shutdown.")
     finally:
         GPIO.cleanup()
-        
 
 
 change_led("PWR", "OFF")
