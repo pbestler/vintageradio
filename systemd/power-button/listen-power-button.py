@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
 import RPi.GPIO as GPIO
-import logging
-
+import subprocess
+import time
 
 def change_led(led_name="PWR", state="on"):
     """Turns the Raspberry Pi LED ON or OFF based on the given state.
@@ -17,12 +17,16 @@ def change_led(led_name="PWR", state="on"):
         if state.lower() == "on":
             with open(trigger_path, "w") as f:
                 f.write("none")  # Disable automatic control
+
+            time.sleep(0.5) # The led driver needs some time to switch the mode
             with open(brightness_path, "w") as f:
                 f.write("1")  # Turn LED ON
             print("ACT LED turned ON.")
         elif state.lower() == "off":
             with open(trigger_path, "w") as f:
                 f.write("none")  # Disable automatic control
+
+            time.sleep(0.5) # The led driver needs some time to switch the mode
             with open(brightness_path, "w") as f:
                 f.write("0")  # Turn LED OFF
             print("ACT LED turned OFF.")
