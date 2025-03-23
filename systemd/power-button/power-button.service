@@ -3,7 +3,7 @@ Description=Raspberry Pi LED & Power Button Service
 After=multi-user.target
 
 [Service]
-ExecStart=/usr/local/bin/led_powerbutton.py
+ExecStart=/usr/local/bin/listen-power-button.py
 StandardOutput=journal
 StandardError=journal
 Restart=always

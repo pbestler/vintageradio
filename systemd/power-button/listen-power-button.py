@@ -40,7 +40,7 @@ def change_led(led_name="PWR", state="on"):
 def wait_for_powerbutton(gpio_id=3):
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(gpio_id, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-    print(f"Registered GPIO{gpioid} as shutdown button. Waiting. ")
+    print(f"Registered GPIO{gpio_id} as shutdown button. Waiting. ")
     try:
         GPIO.wait_for_edge(gpio_id, GPIO.FALLING)
         print(f"Shutdown triggered by GPIO{gpio_id} -> Shutting down.")

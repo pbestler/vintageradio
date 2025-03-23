@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set the script and service name
-SCRIPT_NAME="listen-powerbutton.py"
+SCRIPT_NAME="listen-power-button.py"
 SERVICE_NAME="power-button.service"
 INSTALL_DIR="/usr/local/bin"
 SERVICE_DIR="/etc/systemd/system"
