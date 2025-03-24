@@ -41,7 +41,7 @@ def change_led(led_name="PWR", state="on"):
         print(f"Error: {e}")
 
 
-def wait_for_powerbutton(gpio_id=3):
+def wait_for_powerbutton(gpio_id=7):
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(gpio_id, GPIO.IN, pull_up_down=GPIO.PUD_UP)
     print(f"Registered GPIO{gpio_id} as shutdown button. Waiting. ")
@@ -50,7 +50,7 @@ def wait_for_powerbutton(gpio_id=3):
         print(f"Shutdown triggered by GPIO{gpio_id} -> Shutting down.")
         subprocess.call(["shutdown", "-h", "now"], shell=False)
     except Exception as e:
-        print(f"Error during shutdown.")
+        print("Error during shutdown.")
     finally:
         GPIO.cleanup()
 
